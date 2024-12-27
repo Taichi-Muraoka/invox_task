@@ -158,5 +158,28 @@ php artisan key:generate
 php artisan migrate
 ```
 
+```
+npm run dev
+```
+
 ## アクセス
 http://localhost:80
+
+## 起動毎に実施するコマンド
+コンテナビルド＆立ち上げ
+```
+docker compose up -d --build
+```
+
+appサーバーのコンソール内でvite起動
+```
+docker compose exec app bash
+```
+```
+npm run dev
+```
+
+コンテナを落とす時は
+```
+docker compose down
+```
