@@ -24,4 +24,4 @@ yarn-error.log
 
 # 追記
 .DS_Store
-docker
+docker/
