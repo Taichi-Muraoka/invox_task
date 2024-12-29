@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'title',
+    'title' => 'CW塾',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => '- CW塾マイページ',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => 'logo title',
+    'logo' => 'CW塾マイページ',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'CW',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,10 +84,10 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'path' => 'img/cw_logo.png',
+            'alt' => 'CW',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -364,7 +364,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
