@@ -1,3 +1,5 @@
+@inject('requestConvert', 'App\Libs\RequestConvert')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -27,20 +29,24 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
-        {{-- Configured Stylesheets --}}
+        {{-- Extra Configured Plugins Stylesheets --}}
         @include('adminlte::plugins', ['type' => 'css'])
 
         <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 
         {{-- メインCSS --}}
         @vite('resources/sass/app.scss')
+
+        @if(config('adminlte.google_fonts.allowed', true))
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        @endif
     @else
         <link rel="stylesheet" href="{{ mix(config('adminlte.laravel_mix_css_path', 'css/app.css')) }}">
     @endif
 
     {{-- Livewire Styles --}}
     @if(config('adminlte.livewire'))
-        @if(app()->version() >= 7)
+        @if(intval(app()->version()) >= 7)
             @livewireStyles
         @else
             <livewire:styles />
@@ -52,7 +58,7 @@
 
     {{-- Favicon --}}
     @if(config('adminlte.use_ico_only'))
-        <link rel="shortcut icon" href="{{ asset('./favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
     @elseif(config('adminlte.use_full_favicon'))
     {{-- ジェネレーターで作成 --}}
     <meta name="msapplication-square70x70logo" content="{{ asset('favicons/site-tile-70x70.png') }}">
@@ -101,7 +107,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/icon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="24x24" href="{{ asset('favicons/icon-24x24.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/icon-32x32.png') }}">
-    {{-- <link rel="manifest" href="{{ asset('manifest.icon.json') }}"> --}}
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
     @endif
 
 </head>
@@ -116,18 +122,17 @@
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-
-        {{-- Configured Scripts --}}
-        @include('adminlte::plugins', ['type' => 'js'])
-
         <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @else
         <script src="{{ mix(config('adminlte.laravel_mix_js_path', 'js/app.js')) }}"></script>
     @endif
 
+    {{-- Extra Configured Plugins Scripts --}}
+    @include('adminlte::plugins', ['type' => 'js'])
+
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))
-        @if(app()->version() >= 7)
+        @if(intval(app()->version()) >= 7)
             @livewireScripts
         @else
             <livewire:scripts />
@@ -135,17 +140,21 @@
     @endif
 
     {{-- Webアプリの設定を保持 --}}
-    {{-- <script> --}}
-        {{-- appInfo = { path:'{{ Request::path() }}', root:'{{ Request::root() }}', view: '{{ $view_name }}'  --}}
-        {{-- 三階層目のページの場合。親のURLを保持しておく。戻るボタンに使用する --}}
-        {{-- @hasSection('parent_page') --}}
-        {{-- , parent: '@yield("parent_page")' --}}
-        {{-- @endif --}}
-        {{-- }; --}}
-    {{-- </script> --}}
-
     <script>
-        
+        appInfo = { path:'{{ Request::path() }}', root:'{{ $requestConvert->getRootUrl(Request::root()) }}', view: '{{ $view_name }}'
+        {{-- 三階層目のページの場合。親のURLを保持しておく。戻るボタンに使用する --}}
+        @hasSection('parent_page')
+        , parent: '@yield("parent_page")'
+        @endif
+        {{-- 四階層目のページの場合。親のURLを保持しておく。戻るボタンに使用する --}}
+        @hasSection('parent_page')
+        , parent2: '@yield("parent_page2")'
+        @endif
+        {{-- 他機能の画面からの遷移の場合。遷移元のURLを保持しておく。戻るボタンに使用する --}}
+        @hasSection('base_page')
+        , base: '@yield("base_page")'
+        @endif
+        };
     </script>
 
     {{-- Custom Scripts --}}

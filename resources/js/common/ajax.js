@@ -5,6 +5,15 @@
  */
 export default class AjaxCom {
     /**
+     * Promiseを取得
+     */
+    static getPromise() {
+        return new Promise((resolve) => {
+            return resolve();
+        });
+    }
+
+    /**
      * 非同期処理 処理Exit
      *
      * Connect.failにてエラーとしない
@@ -80,15 +89,19 @@ export default class AjaxCom {
                 // エラーコード413はファイルアップロードサイズ超過エラー
                 // PHP側の処理が行われず、応答結果としてエラーが返るのでここで拾う
                 appDialogCom.alert(
-                    "最大ファイルアップロードサイズを超えたため、アップロードできませんでした。",
+                    // "最大ファイルアップロードサイズを超えたため、アップロードできませんでした。",
+                    "The file could not be uploaded because it exceeded the maximum file upload size.",
                     "md"
                 );
             } else {
                 // 何らかのエラー
                 appDialogCom.alert(
-                    "エラーが発生しました。<br>" +
-                        "一度ページの再読み込みを行ってください。<br>" +
-                        "それでも解決しない場合は、システム管理者へご連絡ください。",
+                    // "エラーが発生しました。<br>" +
+                    //     "一度ページの再読み込みを行ってください。<br>" +
+                    //     "それでも解決しない場合は、システム管理者へご連絡ください。",
+                    "An error has occurred.<br>" +
+                        "Please reload the page.<br>" +
+                        "If the problem persists, please contact your system administrator.",
                     "md"
                 );
             }
