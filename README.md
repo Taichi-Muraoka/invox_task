@@ -8,10 +8,12 @@ git clone git@github.com:Taichi-Muraoka/docker-laravel-mypage.git
 
 ## docker関連ファイル作成
 以下のように`docker`フォルダを作成し、その配下に`mysql`,`nginx`,`php`フォルダを作成する。
+
 ![image](https://github.com/user-attachments/assets/d902f3c3-5b71-4657-b5f5-46b7d9124eae)
 
 #### nginxフォルダ
 以下のように`logs`フォルダ作成と`Dockerfile`,`default.conf`ファイルを作成する。
+
 ![image](https://github.com/user-attachments/assets/0ee9c509-7e74-44e7-bc54-370b6847f7ff)
 
 `logs`の中身は空
@@ -183,3 +185,8 @@ npm run dev
 ```
 docker compose down
 ```
+
+## phpmyadmin
+`compose.yaml`にphpmyadminを追加  
+
+http://localhost:3001
