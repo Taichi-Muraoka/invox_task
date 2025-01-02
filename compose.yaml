@@ -25,7 +25,7 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
 
   mysql:
-    image: mysql:8.0.37
+    image: mysql:8.0
     command: --max_allowed_packet=32505856
     container_name: "mysql"
     volumes:
