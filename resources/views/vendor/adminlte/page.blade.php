@@ -28,19 +28,19 @@
         @endif
 
         {{-- Top Navbar --}}
-        @if($layoutHelper->isLayoutTopnavEnabled())
+        {{-- @if($layoutHelper->isLayoutTopnavEnabled())
             @include('adminlte::partials.navbar.navbar-layout-topnav')
         @else
             @include('adminlte::partials.navbar.navbar')
-        @endif
+        @endif --}}
 
         {{-- Left Main Sidebar --}}
-        @if(!$layoutHelper->isLayoutTopnavEnabled())
+        {{-- @if(!$layoutHelper->isLayoutTopnavEnabled())
             @include('adminlte::partials.sidebar.left-sidebar')
-        @endif
+        @endif --}}
 
         {{-- Content Wrapper --}}
-        <div class="content-wrapper {{ config('adminlte.classes_content_wrapper', '') }}">
+        {{-- <div class="content-wrapper {{ config('adminlte.classes_content_wrapper', '') }}"> --}}
 
             {{-- Content Header --}}
             <div class="content-header">
@@ -109,7 +109,7 @@
 
             {{-- 画面が長いときに隙間ができるので対応 --}}
             &nbsp;
-        </div>
+        {{-- </div> --}}
 
         {{-- Footer --}}
         @hasSection('footer')

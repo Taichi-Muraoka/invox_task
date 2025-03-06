@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'CW塾',
+    'title' => 'invox 課題',
     'title_prefix' => '',
-    'title_postfix' => '- CW塾マイページ',
+    'title_postfix' => '- invox 課題',
 
     /*
     |--------------------------------------------------------------------------
