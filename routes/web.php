@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
+// ログイン機能がないため、indexに飛ばす
+Route::get('/',  [App\Http\Controllers\IndexController::class, 'redirectIndex'])->name('redirect_index');
 
 // index
 Route::get('/index', [App\Http\Controllers\IndexController::class, 'index'])->name('index');

@@ -2,7 +2,7 @@
     input - file
   --------------------------------------------}}
 
-@props(['caption' => '', 'id' => '', 'editData' => [], 'vShow' => ''])
+@props(['caption' => '', 'id' => '', 'editData' => [], 'vShow' => '', 'onChange' => ''])
 
 {{-- バリデーションエラー時のスクロール先 --}}
 <span class="form-validation" data-id="{{ $id }}"></span>
@@ -25,6 +25,10 @@
       <input type="file" class="custom-file-input" id="file_{{ $id }}" ref="file_{{ $id }}" multiple="multiple"
         {{-- エラー時の表示 --}}
         v-bind:class="{ 'is-invalid': form_err.class.{{ $id }} || form_err.class.file_{{ $id }} }" 
+        {{-- Vueのチェンジイベント --}}
+        @if (!empty($onChange))
+        v-on:change="{{ $onChange }}"
+        @endif
       >
       <label class="custom-file-label" for="file_{{ $id }}" data-browse="参照">ファイルを選択</label>
     </div>
