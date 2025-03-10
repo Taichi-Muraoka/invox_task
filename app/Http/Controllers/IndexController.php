@@ -79,7 +79,7 @@ class IndexController extends Controller
     public function create(Request $request)
     {
         // アップロードされた画像ファイルのパスを取得
-        $image_path = $request['file_image'];
+        $image_path = $this->fileUploadRealPath($request, 'image');
 
         // リクエストのタイムスタンプを作成
         $request_timestamp = date('Y-m-d H:i:s');

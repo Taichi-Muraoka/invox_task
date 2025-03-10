@@ -8,5 +8,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-// 擬似API
+// 仮API
 Route::apiResource('image_analysis', ApiController::class);

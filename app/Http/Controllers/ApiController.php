@@ -4,21 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ImageData;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Route;
-// 仮API
-use App\Http\Controllers\Traits\AiAnalysisTrait;
 
 class ApiController extends Controller
 {
     /**
-     * 擬似API
+     * 仮API 登録データ確認用
+     * GETリクエストで確認
      *
-     * @param \Illuminate\Http\Request $request リクエスト
-     * @return void
+     * @param null
+     * @return json
      */
     public function index()
     {
@@ -29,6 +23,13 @@ class ApiController extends Controller
         ], 200);
     }
 
+    /**
+     * 仮API 
+     * 仮のため固定のレスポンス内容を返す
+     *
+     * @param Reuest
+     * @return json
+     */
     public function store(Request $request)
     {
         // リクエストで送られてきた画像のパスは仮APIのため使用しない
@@ -36,7 +37,8 @@ class ApiController extends Controller
         // レスポンス内容格納用
         $response = [];
 
-        // 擬似APIのため、レスポンス内容は固定
+        // 仮APIのため、レスポンス内容は固定
+        // 実際は送られてきた画像パスを元に
         try {
             // 成功
             $response = [
