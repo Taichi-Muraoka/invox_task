@@ -16,7 +16,7 @@ git clone git@github.com:Taichi-Muraoka/invox_task.git
 ![image](https://github.com/user-attachments/assets/d902f3c3-5b71-4657-b5f5-46b7d9124eae)
 
 #### nginxフォルダ
-以下のように`nginx`フォルダは以下に`logs`フォルダ作成と`Dockerfile`,`default.conf`ファイルを作成する。
+以下のように`nginx`フォルダ配下に`logs`フォルダ作成と`Dockerfile`,`default.conf`ファイルを作成する。
 
 ![image](https://github.com/user-attachments/assets/0ee9c509-7e74-44e7-bc54-370b6847f7ff)
 
@@ -60,7 +60,7 @@ server {
 ```
 
 #### phpフォルダ
-以下のように`php`フォルダは以下に`Dockerfile`,`php.ini`ファイルを作成する。  
+以下のように`php`フォルダ配下に`Dockerfile`,`php.ini`ファイルを作成する。  
 ![image](https://github.com/user-attachments/assets/31db2d52-395f-48dc-83cc-0088cc6d8bce)
 
 - Dockerfile
