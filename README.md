@@ -1,12 +1,16 @@
-# Docker-Laravel-mypage
+# invox_task
 
-## git clone
+## はじめに
+
+
+## 環境構築
+### git clone
 プロジェクト作成したいフォルダで
 ```
 git clone git@github.com:Taichi-Muraoka/invox_task.git
 ```
 
-## docker関連ファイル作成
+### docker関連ファイル作成
 以下のように`docker`フォルダを作成し、その配下に`mysql`,`nginx`,`php`フォルダを作成する。
 
 ![image](https://github.com/user-attachments/assets/d902f3c3-5b71-4657-b5f5-46b7d9124eae)
@@ -105,7 +109,7 @@ upload_max_filesize=256M
 post_max_size=256M
 ```
 
-## dockerコンテナビルド
+### dockerコンテナビルド
 ```
 cd docker-laravel-mypage
 ```
@@ -114,14 +118,14 @@ cd docker-laravel-mypage
 docker compose up -d --build 
 ```
 
-`docker ps -a`コマンドなどでコンテナが4つ立ち上がっていることを確認
+`docker ps -a`コマンドなどでコンテナが4つ立ち上がっていることを確認する。
 
 自分はvscodeの拡張機能で確認
 
 ![image](https://github.com/user-attachments/assets/4a59167d-1a97-4743-b4ef-52c9ef6299e7)
 
-## .env設定
-プロジェクトディレクトリ直下で実行
+### .env設定
+プロジェクトディレクトリ直下で実行する。
 ```
 cp .env.example .env
 ```
@@ -144,14 +148,14 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-## 必要なコマンド実施
+### 必要なコマンド実施
 appサーバーのコンソールに入る
 ```
 docker compose exec app bash
 ```
 ![image](https://github.com/user-attachments/assets/b505486a-e1fb-4181-be0f-662bd3fc3540)
 
-appサーバーのコンソール内で以下実施
+appサーバーのコンソール内で以下実施する
 ```
 php artisan key:generate
 ```
@@ -164,16 +168,16 @@ php artisan migrate
 npm run dev
 ```
 
-## アクセス
+### アクセス
 http://localhost:80
 
-## 起動毎に実施するコマンド
+### 起動毎に実施するコマンド
 コンテナビルド＆立ち上げ
 ```
 docker compose up -d --build
 ```
 
-appサーバーのコンソール内でvite起動
+appサーバーのコンソール内でviteを起動する
 ```
 docker compose exec app bash
 ```
