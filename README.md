@@ -1,8 +1,11 @@
 # invox_task
 
+
+
 ## はじめに
 課題に取り組むにあたりまして、今回はPHP, Laravelで取り組みました。  
-APIは固定値のjsonを返すものですが、プロジェクト内部に仮にAPIを作ってみました。
+APIは固定値のjsonを返すものですが、プロジェクト内部に仮にAPIを作ってみました。  
+大変お手数ですが、Dockerで環境を作って、動作のご確認を頂ければ幸いです。  
 
 ### 重要ファイル
 - DBへの保存処理等記載ファイル(app/Http/Controllers/IndexController.php)
@@ -21,6 +24,8 @@ APIは固定値のjsonを返すものですが、プロジェクト内部に仮�
 |PHP|8.3-fpm|  
 |DB|MySQL 8.0|  
 |Laravel|11.31|  
+
+
 
 ## 環境構築
 ### git clone
@@ -212,6 +217,8 @@ docker compose down
 ### phpmyadmin
 
 http://localhost:3001
+
+
 
 ## 動作
 
