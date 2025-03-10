@@ -111,7 +111,7 @@ post_max_size=256M
 
 ### dockerコンテナビルド
 ```
-cd docker-laravel-mypage
+cd invox_task
 ```
 
 ```
