@@ -3,7 +3,7 @@
 ## git clone
 プロジェクト作成したいフォルダで
 ```
-git clone git@github.com:Taichi-Muraoka/docker-laravel-mypage.git
+git clone git@github.com:Taichi-Muraoka/invox_task.git
 ```
 
 ## docker関連ファイル作成
