@@ -1,7 +1,26 @@
 # invox_task
 
 ## はじめに
+課題に取り組むにあたりまして、今回はPHP, Laravelで取り組みました。  
+APIは固定値のjsonを返すものですが、プロジェクト内部に仮にAPIを作ってみました。
 
+### 重要ファイル
+- DBへの保存処理等記載ファイル(app/Http/Controllers/IndexController.php)
+- API(app/Http/Controllers/ApiController.php)
+- ルーティング(routes/web.php)
+- ルーティングAPI(routes/api.php)
+- トップページのbladeファイル(resources/views/pages/index.blade.php)
+- トップページのJSファイル(resources/js/pages/index.js)
+- マイグレーションファイル(database/migrations/2025_03_07_000001_create_image_datas_table.php)
+- モデルファイル(app/Models/ImageData.php)
+
+### バージョン  
+
+||バージョン|
+| ---- | ---- |  
+|PHP|8.3-fpm|  
+|DB|MySQL 8.0|  
+|Laravel|11.31|  
 
 ## 環境構築
 ### git clone
@@ -190,6 +209,19 @@ npm run dev
 docker compose down
 ```
 
-## phpmyadmin
+### phpmyadmin
 
 http://localhost:3001
+
+## 動作
+
+<img width="1018" alt="image" src="https://github.com/user-attachments/assets/4330102f-812b-45b2-9d6c-c6280fdf377b" />
+
+画像ファイルを選択し、送信ボタンを押下する。  
+※jpg, png, gifのみ  
+
+バリデーションで弾かれなければ確認モーダルが表示される。  
+<img width="508" alt="image" src="https://github.com/user-attachments/assets/bd184a20-1aa5-4c5d-a828-a6038b09f87c" />
+
+OK押下で、APIに画像のパスを送り、json形式のレスポンスをもらい、DBに登録する一連の処理が始まる。  
+
