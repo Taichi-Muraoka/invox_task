@@ -191,6 +191,5 @@ docker compose down
 ```
 
 ## phpmyadmin
-`compose.yaml`にphpmyadminを追加  
 
 http://localhost:3001
