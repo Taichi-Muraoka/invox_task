@@ -118,7 +118,7 @@ cd invox_task
 docker compose up -d --build 
 ```
 
-`docker ps -a`コマンドなどでコンテナが4つ立ち上がっていることを確認する。
+`docker ps -a`コマンドなどでコンテナが立ち上がっていることを確認する。
 
 自分はvscodeの拡張機能で確認
 
