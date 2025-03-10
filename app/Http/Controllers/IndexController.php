@@ -6,17 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\ImageData;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
-// 仮API
-use App\Http\Controllers\Traits\AiAnalysisTrait;
+use Illuminate\Support\Facades\Http;
 
 class IndexController extends Controller
 {
-
-    // 仮API
-    use AiAnalysisTrait;
-
     /**
      * リダイレクト
      * ログイン画面がないためindexにリダイレクトする
@@ -90,9 +84,11 @@ class IndexController extends Controller
         // リクエストのタイムスタンプを作成
         $request_timestamp = date('Y-m-d H:i:s');
 
-        // 画像分析のAPIにパスを渡す
-        // 今回はTraitsの関数がAPIだと仮定する
-        $response_json = $this->analysis($image_path);
+        // APIに画像のパスを渡す
+        // dockerで環境を作ったのでlocalhostではなく、host.docker.internalを指定する
+        $response_json = Http::asForm()->post('http://host.docker.internal/api/image_analysis', [
+            'image_path' => $image_path
+        ]);
 
         // レスポンスのタイムスタンプを作成
         $response_timestamp = date('Y-m-d H:i:s');
@@ -122,6 +118,6 @@ class IndexController extends Controller
             return $this->illegalResponseErr();
         }
 
-        return;
+        return $image_path;
     }
 }
