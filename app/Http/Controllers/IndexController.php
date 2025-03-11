@@ -78,7 +78,7 @@ class IndexController extends Controller
      */
     public function create(Request $request)
     {
-        // アップロードされた画像ファイルのパスを取得
+        // 画像ファイルのパスを取得
         $image_path = $this->fileUploadRealPath($request, 'image');
 
         // リクエストのタイムスタンプを作成
@@ -86,6 +86,7 @@ class IndexController extends Controller
 
         // APIに画像のパスを渡す
         // dockerで環境を作ったのでlocalhostではなく、host.docker.internalを指定する
+        // 実際には外部APIを想定しているのでURLをフルで書いてます
         $response_json = Http::asForm()->post('http://host.docker.internal/api/image_analysis', [
             'image_path' => $image_path
         ]);
